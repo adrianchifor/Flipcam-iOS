@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C3546851C135E41000CAC2D /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3546841C135E41000CAC2D /* Participation.swift */; };
+		0C3546871C135FF3000CAC2D /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3546861C135FF3000CAC2D /* Segment.swift */; };
+		0C3546891C13618C000CAC2D /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3546881C13618C000CAC2D /* Recording.swift */; };
 		0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC370991C133EC700243364 /* PreviewView.swift */; };
+		648C2C0D5FB10E6F1BFD6193 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A68900020157664E54D8639 /* libPods.a */; };
 		9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A471C13366900866DB2 /* AppDelegate.swift */; };
 		9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A491C13366900866DB2 /* ViewController.swift */; };
 		9A519A4D1C13366900866DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A519A4B1C13366900866DB2 /* Main.storyboard */; };
@@ -16,7 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C3546821C135DD5000CAC2D /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
+		0C3546841C135E41000CAC2D /* Participation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participation.swift; sourceTree = "<group>"; };
+		0C3546861C135FF3000CAC2D /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		0C3546881C13618C000CAC2D /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		0CC370991C133EC700243364 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		11213721F17B1F3183ABA919 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6A68900020157664E54D8639 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A519A441C13366900866DB2 /* Flipcam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipcam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A519A471C13366900866DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A519A491C13366900866DB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,12 +42,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				648C2C0D5FB10E6F1BFD6193 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3546831C135E37000CAC2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C3546841C135E41000CAC2D /* Participation.swift */,
+				0C3546861C135FF3000CAC2D /* Segment.swift */,
+				0C3546881C13618C000CAC2D /* Recording.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		0CC370981C133E9E00243364 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +72,8 @@
 			children = (
 				9A519A461C13366900866DB2 /* Flipcam */,
 				9A519A451C13366900866DB2 /* Products */,
+				D3A9F5454BC446A2408DF11D /* Frameworks */,
+				F93885435D54290802FF6E89 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +88,7 @@
 		9A519A461C13366900866DB2 /* Flipcam */ = {
 			isa = PBXGroup;
 			children = (
+				0C3546831C135E37000CAC2D /* Models */,
 				0CC370981C133E9E00243364 /* Views */,
 				9A519A471C13366900866DB2 /* AppDelegate.swift */,
 				9A519A491C13366900866DB2 /* ViewController.swift */,
@@ -71,8 +96,26 @@
 				9A519A4E1C13366900866DB2 /* Assets.xcassets */,
 				9A519A501C13366900866DB2 /* LaunchScreen.storyboard */,
 				9A519A531C13366900866DB2 /* Info.plist */,
+				0C3546821C135DD5000CAC2D /* Bridging-header.h */,
 			);
 			path = Flipcam;
+			sourceTree = "<group>";
+		};
+		D3A9F5454BC446A2408DF11D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A68900020157664E54D8639 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F93885435D54290802FF6E89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */,
+				11213721F17B1F3183ABA919 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A519A561C13366900866DB2 /* Build configuration list for PBXNativeTarget "Flipcam" */;
 			buildPhases = (
+				81D27EAEFD5D2AAACF59B56B /* Check Pods Manifest.lock */,
 				9A519A401C13366900866DB2 /* Sources */,
 				9A519A411C13366900866DB2 /* Frameworks */,
 				9A519A421C13366900866DB2 /* Resources */,
+				05985C8F3133C094E916B2A9 /* Embed Pods Frameworks */,
+				51530F3480607463784DBAA9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,11 +188,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05985C8F3133C094E916B2A9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51530F3480607463784DBAA9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81D27EAEFD5D2AAACF59B56B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A519A401C13366900866DB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3546851C135E41000CAC2D /* Participation.swift in Sources */,
+				0C3546891C13618C000CAC2D /* Recording.swift in Sources */,
+				0C3546871C135FF3000CAC2D /* Segment.swift in Sources */,
 				9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */,
 				9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */,
 				0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */,
@@ -215,6 +312,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Flipcam/Bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -252,16 +350,22 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Flipcam/Bridging-header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		9A519A571C13366900866DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -273,10 +377,15 @@
 		};
 		9A519A581C13366900866DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11213721F17B1F3183ABA919 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
