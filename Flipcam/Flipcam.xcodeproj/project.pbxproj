@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC370991C133EC700243364 /* PreviewView.swift */; };
 		9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A471C13366900866DB2 /* AppDelegate.swift */; };
 		9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A491C13366900866DB2 /* ViewController.swift */; };
 		9A519A4D1C13366900866DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A519A4B1C13366900866DB2 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CC370991C133EC700243364 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		9A519A441C13366900866DB2 /* Flipcam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipcam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A519A471C13366900866DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A519A491C13366900866DB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CC370981C133E9E00243364 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CC370991C133EC700243364 /* PreviewView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		9A519A3B1C13366900866DB2 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		9A519A461C13366900866DB2 /* Flipcam */ = {
 			isa = PBXGroup;
 			children = (
+				0CC370981C133E9E00243364 /* Views */,
 				9A519A471C13366900866DB2 /* AppDelegate.swift */,
 				9A519A491C13366900866DB2 /* ViewController.swift */,
 				9A519A4B1C13366900866DB2 /* Main.storyboard */,
@@ -96,6 +107,7 @@
 				TargetAttributes = {
 					9A519A431C13366900866DB2 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = Q5VU78SL5Z;
 					};
 				};
 			};
@@ -137,6 +149,7 @@
 			files = (
 				9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */,
 				9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */,
+				0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,11 +260,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sorryteam.Flipcam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -259,11 +275,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sorryteam.Flipcam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +305,7 @@
 				9A519A581C13366900866DB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
