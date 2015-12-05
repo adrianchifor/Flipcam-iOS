@@ -5,18 +5,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let host = "10.10.10.10:5000"
+    let host = "http://31.187.70.159:5000"
     var window: UIWindow?
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         setupMappings()
-        RKObjectManager.sharedManager().getObjectsAtPath("/session", parameters: ["lat": 0, "lng" : 0], success: { (operation, result) -> Void in
 
-            }) { (request, error) -> Void in
-
-        }
         return true
     }
     
@@ -55,21 +51,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupParticipant(manager:RKObjectManager){
         let mapping = RKObjectMapping(forClass: Participation.self)
-        mapping.addAttributeMappingsFromArray(["key"])
-        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/session", keyPath: "", statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
+        mapping.addAttributeMappingsFromDictionary(["key": "key"])
+        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/session", keyPath: nil, statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
 
     }
     func setupSegment(manager:RKObjectManager){
         let mapping = RKObjectMapping(forClass: Segment.self)
-        mapping.addAttributeMappingsFromArray(["start", "end"])
-        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/segment", keyPath: "", statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
+        mapping.addAttributeMappingsFromDictionary(["start": "start",
+                                                    "stop": "stop"])
+        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/segment", keyPath: "", statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
     }
     func setupRecording(manager:RKObjectManager){
         let mapping = RKObjectMapping(forClass: Recording.self)
         mapping.addAttributeMappingsFromArray(["video", "start_time"])
-        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/recordings", keyPath: "", statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
+        let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/recordings", keyPath: "", statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
     }
 }
