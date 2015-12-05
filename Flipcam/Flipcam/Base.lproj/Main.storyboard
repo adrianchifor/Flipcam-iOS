@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kWG-QW-lV6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xOF-Y1-bkm">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="kWG-QW-lV6" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kpv-lm-GN5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9ZC-lC-eJK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2E-rE-r4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-802" y="450"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-Ho-JRr" customClass="PreviewView" customModule="Flipcam" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-Ho-JRr" customClass="PreviewView" customModule="Flipcam" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="667" height="335"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-0O-GT2">
@@ -43,6 +62,14 @@
                                             <constraint firstAttribute="height" constant="5" id="fwY-1X-ybm"/>
                                         </constraints>
                                     </progressView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
+                                        <rect key="frame" x="569" y="305" width="78" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Recordings"/>
+                                        <connections>
+                                            <segue destination="Q5A-Qh-NXb" kind="show" id="Bdh-ni-r6v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +79,7 @@
                                     <constraint firstItem="pj5-0O-GT2" firstAttribute="leading" secondItem="IB0-3V-9mK" secondAttribute="trailing" constant="50" id="NSf-pL-JGE"/>
                                     <constraint firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" constant="20" id="bRt-o1-6Uv"/>
                                     <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" constant="42" id="qNI-ZA-wC2"/>
+                                    <constraint firstItem="1XU-gX-dgK" firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" id="rfZ-vW-uXr"/>
                                     <constraint firstItem="IB0-3V-9mK" firstAttribute="leading" secondItem="fWA-Ho-JRr" secondAttribute="leading" constant="50" id="uxv-N4-iz8"/>
                                 </constraints>
                                 <variation key="default">
@@ -65,11 +93,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fWA-Ho-JRr" secondAttribute="trailing" id="8SS-ZO-Q4H"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1XU-gX-dgK" secondAttribute="bottom" constant="20" id="Aw0-nD-xO8"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dkf-Wb-XjE"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iWV-Ne-MvN"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ofQ-L4-KoX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="giW-ls-7Mw"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -81,6 +111,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="278.5" y="358.5"/>
+        </scene>
+        <!--Recordngs Table View-->
+        <scene sceneID="JSA-Mu-xCP">
+            <objects>
+                <tableViewController id="Q5A-Qh-NXb" customClass="RecordngsTableView" customModule="Flipcam" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eEh-F3-J7x">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="G5v-mk-ibx">
+                                <rect key="frame" x="0.0" y="28" width="667" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5v-mk-ibx" id="1da-52-sMh">
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Q5A-Qh-NXb" id="pD3-4X-Unu"/>
+                            <outlet property="delegate" destination="Q5A-Qh-NXb" id="df0-lC-HRR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHx-Gh-evI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1191.5" y="495.5"/>
         </scene>
     </scenes>
 </document>
