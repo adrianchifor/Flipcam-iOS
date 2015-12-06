@@ -59,10 +59,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCn-fV-Q73">
                                         <rect key="frame" x="587" y="0.0" width="80" height="335"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
-                                                <rect key="frame" x="25" y="295" width="30" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
+                                                <rect key="frame" x="-36" y="246" width="152" height="128"/>
                                                 <animations/>
-                                                <state key="normal" title="list">
+                                                <state key="normal" image="Recordings">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -184,4 +184,7 @@
             <point key="canvasLocation" x="1191.5" y="495.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Recordings" width="36" height="36"/>
+    </resources>
 </document>
