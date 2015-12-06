@@ -6,7 +6,7 @@
 //  Copyright © 2015 SorryTeam. All rights reserved.
 //
 #import <RestKit/RestKit.h>
-
+#import "NSDate+TimeAgo.h"
 #ifndef Bridging_header_h
 #define Bridging_header_h
 

@@ -28,8 +28,8 @@ class RecordngsTableView: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let recording = recordings[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        let secondsAgo = "\(Int(NSDate().timeIntervalSince1970) - recording.created/1000) seconds ago"
-        cell.textLabel!.text = secondsAgo
+        let date = NSDate(timeIntervalSince1970: Double(recording.created/1000))
+        cell.textLabel!.text = date.timeAgo()
         return cell
     }
     
