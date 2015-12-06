@@ -51,7 +51,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         session.commitConfiguration()
         self.session.startRunning()
         
-        session.sessionPreset = AVCaptureSessionPreset1280x720
+        session.sessionPreset = AVCaptureSessionPreset640x480
         
         session.addOutput(output)
         let temp = NSTemporaryDirectory()
@@ -86,7 +86,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
                 dispatch_after(self.dispatchTimstamp(current.stop), dispatch_get_main_queue(), { () -> Void in
                     if self.currentSegment == current {
 
-                        self.startWaitingCountdown()
+                        self.startWaitingCountdown(self.nextSegment)
                         if(self.nextSegment == nil){
                             //no more segments
                             self.output.stopRecording()
@@ -99,7 +99,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
                 })
             }else if let next = nextSegment{
                 
-                self.startWaitingCountdown()
+                self.startWaitingCountdown(next)
                 
             }else{
             }
@@ -141,7 +141,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/segment", parameters: ["key": self.participation!.key, "readyTimestamp": readyTimestamp], success: { (operation, result) -> Void in
             self.session.startRunning()
             let segment = (result.array()[0] as! Segment)
-            self.startWaitingCountdown()
+            self.waitingStart = Double(currentTimestamp)
+            self.startWaitingCountdown(segment)
             dispatch_after(self.dispatchTimstamp(segment.start), dispatch_get_main_queue(), { () -> Void in
                 self.currentSegment = segment
             })
@@ -178,12 +179,14 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         self.progressView.hidden = true
     }
     
-    func startWaitingCountdown(){
-        resetStatusUI()
-        self.waitingStart = NSDate().timeIntervalSince1970 * 1000
-        self.progressView.hidden = false
+    func startWaitingCountdown(segment: Segment?){
+        if let segment = segment {
+            resetStatusUI()
+            self.waitingStart = NSDate().timeIntervalSince1970 * 1000
+            self.progressView.hidden = false
 
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateWaitingProgress", userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateWaitingProgress:", userInfo: ["segment": segment], repeats: true)
+        }
     }
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
         let url:NSURL = NSURL(string: "http://31.187.70.159:5000")!
@@ -210,14 +213,14 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     func updateRecordingProgress(){
         progressView.setProgress(calculateProgress(self.currentSegment!), animated: false)
     }
-    func updateWaitingProgress(){
+    func updateWaitingProgress(timer: NSTimer){
+
         if let waitingStart = waitingStart {
-            if let next = self.nextSegment {
-                let current = NSDate().timeIntervalSince1970 * 1000
-                let progress = min((Float( current - Double(waitingStart) ))/Float(next.start - Int(waitingStart)), 1.0)
+            let segment = timer.userInfo!["segment"] as! Segment
+                let now = NSDate().timeIntervalSince1970 * 1000
+                let progress = min((Float( now - Double(waitingStart) ))/Float(segment.start - Int(waitingStart)), 1.0)
                 progressView.setProgress(progress, animated: false)
                 
-            }
         }
     }
     func calculateProgress(let segment:Segment) -> Float{
