@@ -11,6 +11,7 @@
 		0C3546871C135FF3000CAC2D /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3546861C135FF3000CAC2D /* Segment.swift */; };
 		0C3546891C13618C000CAC2D /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3546881C13618C000CAC2D /* Recording.swift */; };
 		0C35468B1C13679C000CAC2D /* RecordngsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */; };
+		0C35468D1C138A58000CAC2D /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C35468C1C138A58000CAC2D /* FileUploader.swift */; };
 		0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC370991C133EC700243364 /* PreviewView.swift */; };
 		648C2C0D5FB10E6F1BFD6193 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A68900020157664E54D8639 /* libPods.a */; };
 		9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A471C13366900866DB2 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		0C3546861C135FF3000CAC2D /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		0C3546881C13618C000CAC2D /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordngsTableView.swift; sourceTree = "<group>"; };
+		0C35468C1C138A58000CAC2D /* FileUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 		0CC370991C133EC700243364 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		11213721F17B1F3183ABA919 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				9A519A531C13366900866DB2 /* Info.plist */,
 				0C3546821C135DD5000CAC2D /* Bridging-header.h */,
 				0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */,
+				0C35468C1C138A58000CAC2D /* FileUploader.swift */,
 			);
 			path = Flipcam;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C3546851C135E41000CAC2D /* Participation.swift in Sources */,
+				0C35468D1C138A58000CAC2D /* FileUploader.swift in Sources */,
 				0C3546891C13618C000CAC2D /* Recording.swift in Sources */,
 				0C3546871C135FF3000CAC2D /* Segment.swift in Sources */,
 				9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */,

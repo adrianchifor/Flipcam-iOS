@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-Ho-JRr" customClass="PreviewView" customModule="Flipcam" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-Ho-JRr" customClass="PreviewView" customModule="Flipcam" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="667" height="335"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-0O-GT2">
@@ -56,13 +56,15 @@
                                         </variation>
                                     </view>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IB0-3V-9mK">
-                                        <rect key="frame" x="50" y="33" width="517" height="5"/>
+                                        <rect key="frame" x="100" y="30" width="467" height="10"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="fwY-1X-ybm"/>
+                                            <constraint firstAttribute="height" constant="10" id="fwY-1X-ybm"/>
                                         </constraints>
+                                        <color key="progressTintColor" red="0.14509803921568629" green="0.67843137254901964" blue="0.14509803921568629" alpha="0.078208876533742325" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="0.35089148773006135" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
                                         <rect key="frame" x="569" y="305" width="78" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Recordings"/>
@@ -70,23 +72,37 @@
                                             <segue destination="Q5A-Qh-NXb" kind="show" id="Bdh-ni-r6v"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start recording!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69t-lp-0yG">
+                                        <rect key="frame" x="125" y="144" width="418" height="48"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" red="0.0" green="0.68613873106060608" blue="0.0" alpha="0.8971553872699386" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" constant="20" id="Ars-yw-JJv"/>
                                     <constraint firstItem="IB0-3V-9mK" firstAttribute="centerY" secondItem="pj5-0O-GT2" secondAttribute="centerY" id="INI-VJ-MeZ"/>
+                                    <constraint firstItem="69t-lp-0yG" firstAttribute="centerX" secondItem="fWA-Ho-JRr" secondAttribute="centerX" id="K7r-uN-3Cc"/>
                                     <constraint firstItem="pj5-0O-GT2" firstAttribute="leading" secondItem="IB0-3V-9mK" secondAttribute="trailing" constant="50" id="NSf-pL-JGE"/>
+                                    <constraint firstItem="69t-lp-0yG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fWA-Ho-JRr" secondAttribute="leading" constant="50" id="Xah-Cu-fs4"/>
                                     <constraint firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" constant="20" id="bRt-o1-6Uv"/>
+                                    <constraint firstItem="IB0-3V-9mK" firstAttribute="centerX" secondItem="fWA-Ho-JRr" secondAttribute="centerX" id="cVO-37-vMP"/>
+                                    <constraint firstItem="69t-lp-0yG" firstAttribute="centerY" secondItem="fWA-Ho-JRr" secondAttribute="centerY" id="dle-D8-i3c"/>
                                     <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" constant="42" id="qNI-ZA-wC2"/>
                                     <constraint firstItem="1XU-gX-dgK" firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" id="rfZ-vW-uXr"/>
-                                    <constraint firstItem="IB0-3V-9mK" firstAttribute="leading" secondItem="fWA-Ho-JRr" secondAttribute="leading" constant="50" id="uxv-N4-iz8"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="qNI-ZA-wC2"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7bj-i3-oPX" appends="YES" id="QRH-FU-ubj"/>
+                                </connections>
                             </view>
                         </subviews>
                         <animations/>
@@ -106,9 +122,15 @@
                         <outlet property="activeIndicator" destination="pj5-0O-GT2" id="NqA-r5-GKO"/>
                         <outlet property="cameraPreview" destination="fWA-Ho-JRr" id="3rJ-XV-00N"/>
                         <outlet property="progressView" destination="IB0-3V-9mK" id="29M-5c-S7I"/>
+                        <outlet property="startTip" destination="69t-lp-0yG" id="NaJ-9q-RKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7bj-i3-oPX">
+                    <connections>
+                        <action selector="previewTapped:" destination="BYZ-38-t0r" id="N9e-wM-yfi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="278.5" y="358.5"/>
         </scene>
