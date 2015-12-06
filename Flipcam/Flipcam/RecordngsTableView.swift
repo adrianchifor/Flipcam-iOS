@@ -16,8 +16,27 @@ class RecordngsTableView: UITableViewController {
         }
         
         
-        
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let recording = recordings[indexPath.row]
+        UIApplication.sharedApplication().openURL(NSURL(string: recording.video)!)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let recording = recordings[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        cell.textLabel!.text = "\(recording.created)"
+        return cell
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.recordings.count
+    }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
