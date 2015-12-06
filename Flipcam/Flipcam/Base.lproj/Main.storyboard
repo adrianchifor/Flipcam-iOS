@@ -40,76 +40,85 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-Ho-JRr" customClass="PreviewView" customModule="Flipcam" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="667" height="335"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-0O-GT2">
-                                        <rect key="frame" x="617" y="20" width="30" height="30"/>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.93725490196078431" green="0.10980392156862745" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="Pid-MW-QFd"/>
-                                            <constraint firstAttribute="width" constant="30" id="bml-tg-m5i"/>
-                                            <constraint firstAttribute="width" secondItem="pj5-0O-GT2" secondAttribute="height" multiplier="1:1" id="gpg-fn-Y5u"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Pid-MW-QFd"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IB0-3V-9mK">
-                                        <rect key="frame" x="100" y="30" width="467" height="10"/>
+                                        <rect key="frame" x="91" y="40" width="486" height="10"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="fwY-1X-ybm"/>
                                         </constraints>
-                                        <color key="progressTintColor" red="0.14509803921568629" green="0.67843137254901964" blue="0.14509803921568629" alpha="0.078208876533742325" colorSpace="calibratedRGB"/>
+                                        <color key="progressTintColor" red="0.93725490196078431" green="0.10980392156862745" blue="0.1764705882352941" alpha="0.80184768021472397" colorSpace="calibratedRGB"/>
                                         <color key="trackTintColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="0.35089148773006135" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
-                                        <rect key="frame" x="569" y="305" width="78" height="30"/>
-                                        <animations/>
-                                        <state key="normal" title="Recordings"/>
-                                        <connections>
-                                            <segue destination="Q5A-Qh-NXb" kind="show" id="Bdh-ni-r6v"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start recording!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69t-lp-0yG">
                                         <rect key="frame" x="125" y="144" width="418" height="48"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="textColor" red="0.0" green="0.68613873106060608" blue="0.0" alpha="0.8971553872699386" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="0.52396472392638038" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCn-fV-Q73">
+                                        <rect key="frame" x="587" y="0.0" width="80" height="335"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XU-gX-dgK">
+                                                <rect key="frame" x="25" y="295" width="30" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="list">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Q5A-Qh-NXb" kind="show" id="Bdh-ni-r6v"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-0O-GT2">
+                                                <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.93725490196078431" green="0.10980392156862745" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="Pid-MW-QFd"/>
+                                                    <constraint firstAttribute="width" constant="30" id="bml-tg-m5i"/>
+                                                    <constraint firstAttribute="width" secondItem="pj5-0O-GT2" secondAttribute="height" multiplier="1:1" id="gpg-fn-Y5u"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Pid-MW-QFd"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3854006901840491" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="1XU-gX-dgK" firstAttribute="centerX" secondItem="vCn-fV-Q73" secondAttribute="centerX" id="4f7-af-TyE"/>
+                                            <constraint firstAttribute="bottom" secondItem="1XU-gX-dgK" secondAttribute="bottom" constant="10" id="9vK-8u-LUR"/>
+                                            <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="vCn-fV-Q73" secondAttribute="top" constant="10" id="klk-Qk-FJn"/>
+                                            <constraint firstItem="pj5-0O-GT2" firstAttribute="centerX" secondItem="vCn-fV-Q73" secondAttribute="centerX" id="qUI-ei-neW"/>
+                                            <constraint firstAttribute="width" constant="80" id="rS1-eB-yag"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" constant="20" id="Ars-yw-JJv"/>
-                                    <constraint firstItem="IB0-3V-9mK" firstAttribute="centerY" secondItem="pj5-0O-GT2" secondAttribute="centerY" id="INI-VJ-MeZ"/>
+                                    <constraint firstItem="IB0-3V-9mK" firstAttribute="centerY" secondItem="pj5-0O-GT2" secondAttribute="centerY" id="45z-M5-TDW"/>
+                                    <constraint firstItem="vCn-fV-Q73" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" id="9U4-gI-UNs"/>
                                     <constraint firstItem="69t-lp-0yG" firstAttribute="centerX" secondItem="fWA-Ho-JRr" secondAttribute="centerX" id="K7r-uN-3Cc"/>
-                                    <constraint firstItem="pj5-0O-GT2" firstAttribute="leading" secondItem="IB0-3V-9mK" secondAttribute="trailing" constant="50" id="NSf-pL-JGE"/>
+                                    <constraint firstItem="vCn-fV-Q73" firstAttribute="leading" secondItem="IB0-3V-9mK" secondAttribute="trailing" constant="10" id="O8P-Ha-9xp"/>
                                     <constraint firstItem="69t-lp-0yG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fWA-Ho-JRr" secondAttribute="leading" constant="50" id="Xah-Cu-fs4"/>
-                                    <constraint firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" constant="20" id="bRt-o1-6Uv"/>
                                     <constraint firstItem="IB0-3V-9mK" firstAttribute="centerX" secondItem="fWA-Ho-JRr" secondAttribute="centerX" id="cVO-37-vMP"/>
+                                    <constraint firstAttribute="bottom" secondItem="vCn-fV-Q73" secondAttribute="bottom" id="dZ1-i5-iik"/>
                                     <constraint firstItem="69t-lp-0yG" firstAttribute="centerY" secondItem="fWA-Ho-JRr" secondAttribute="centerY" id="dle-D8-i3c"/>
-                                    <constraint firstItem="pj5-0O-GT2" firstAttribute="top" secondItem="fWA-Ho-JRr" secondAttribute="top" constant="42" id="qNI-ZA-wC2"/>
-                                    <constraint firstItem="1XU-gX-dgK" firstAttribute="trailing" secondItem="pj5-0O-GT2" secondAttribute="trailing" id="rfZ-vW-uXr"/>
+                                    <constraint firstAttribute="trailing" secondItem="vCn-fV-Q73" secondAttribute="trailing" id="jXO-Qq-xl7"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="qNI-ZA-wC2"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="7bj-i3-oPX" appends="YES" id="QRH-FU-ubj"/>
                                 </connections>
                             </view>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fWA-Ho-JRr" secondAttribute="trailing" id="8SS-ZO-Q4H"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1XU-gX-dgK" secondAttribute="bottom" constant="20" id="Aw0-nD-xO8"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dkf-Wb-XjE"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iWV-Ne-MvN"/>
                             <constraint firstItem="fWA-Ho-JRr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ofQ-L4-KoX"/>
@@ -122,6 +131,7 @@
                         <outlet property="activeIndicator" destination="pj5-0O-GT2" id="NqA-r5-GKO"/>
                         <outlet property="cameraPreview" destination="fWA-Ho-JRr" id="3rJ-XV-00N"/>
                         <outlet property="progressView" destination="IB0-3V-9mK" id="29M-5c-S7I"/>
+                        <outlet property="recordingsButton" destination="1XU-gX-dgK" id="xdr-on-5z1"/>
                         <outlet property="startTip" destination="69t-lp-0yG" id="NaJ-9q-RKh"/>
                     </connections>
                 </viewController>
@@ -134,7 +144,7 @@
             </objects>
             <point key="canvasLocation" x="278.5" y="358.5"/>
         </scene>
-        <!--Recordngs Table View-->
+        <!--Recordings-->
         <scene sceneID="JSA-Mu-xCP">
             <objects>
                 <tableViewController id="Q5A-Qh-NXb" customClass="RecordngsTableView" customModule="Flipcam" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +155,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="G5v-mk-ibx">
-                                <rect key="frame" x="0.0" y="28" width="667" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="667" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5v-mk-ibx" id="1da-52-sMh">
                                     <rect key="frame" x="0.0" y="0.0" width="667" height="43"/>
@@ -160,6 +170,14 @@
                             <outlet property="delegate" destination="Q5A-Qh-NXb" id="df0-lC-HRR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Recordings" id="6ET-zB-bJF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="N91-Qf-Odc">
+                            <connections>
+                                <action selector="refreshPressed:" destination="Q5A-Qh-NXb" id="IV8-Mw-hpL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHx-Gh-evI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

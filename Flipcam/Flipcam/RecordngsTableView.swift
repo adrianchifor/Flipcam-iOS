@@ -7,7 +7,7 @@ class RecordngsTableView: UITableViewController {
         loadRecordings()
     }
     func loadRecordings(){
-        RKObjectManager.sharedManager().getObjectsAtPath("/recordings", parameters: nil, success: { (operation, result) -> Void in
+        RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/recordings", parameters: nil, success: { (operation, result) -> Void in
             self.recordings = result.array() as! [Recording]
             self.tableView.reloadData()
             
@@ -17,6 +17,9 @@ class RecordngsTableView: UITableViewController {
         
         
     }
+    @IBAction func refreshPressed(sender: AnyObject) {
+        self.loadRecordings()
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let recording = recordings[indexPath.row]
         UIApplication.sharedApplication().openURL(NSURL(string: recording.video)!)
@@ -25,7 +28,8 @@ class RecordngsTableView: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let recording = recordings[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        cell.textLabel!.text = "\(recording.created)"
+        let secondsAgo = "\(Int(NSDate().timeIntervalSince1970) - recording.created/1000) seconds ago"
+        cell.textLabel!.text = secondsAgo
         return cell
     }
     

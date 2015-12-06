@@ -6,9 +6,10 @@ private var myContext = 0
 
 class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     
+    @IBOutlet weak var recordingsButton: UIButton!
     
     @IBOutlet weak var startTip: UILabel!
-    
+        @IBOutlet weak var triggerButton: UIButton!
     @IBOutlet weak var activeIndicator: UIView!
     @IBOutlet weak var cameraPreview: PreviewView!
     
@@ -29,23 +30,28 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.addObserver(self, forKeyPath: "currentSegment", options: .New, context: &myContext)
         self.addObserver(self, forKeyPath: "nextSegment", options: .New, context: &myContext)
         setupActiveIndicator()
         startActiveIndicator()
         resetStatusUI()
         
-        let device = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)[0] as! AVCaptureDevice
-        let input = try! AVCaptureDeviceInput(device: device)
+        let camera = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)[0] as! AVCaptureDevice
+        let mic = AVCaptureDevice.devicesWithMediaType(AVMediaTypeAudio)[0] as! AVCaptureDevice
+        let cameraInput = try! AVCaptureDeviceInput(device: camera)
+        let micInput = try! AVCaptureDeviceInput(device: mic)
         session.beginConfiguration()
-        session.addInput(input)
+        session.addInput(cameraInput)
+        session.addInput(micInput)
+
         cameraPreview.session = session
         let previewLayer = cameraPreview.layer as! AVCaptureVideoPreviewLayer
-        previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+        previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
         session.commitConfiguration()
         self.session.startRunning()
         
-        session.sessionPreset = AVCaptureSessionPreset352x288
+        session.sessionPreset = AVCaptureSessionPreset1280x720
         
         session.addOutput(output)
         let temp = NSTemporaryDirectory()
@@ -68,9 +74,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
             if let current = currentSegment {
                 let currentTimestamp = NSDate().timeIntervalSince1970 * 1000
                 self.startRecordingCountdown()
-                let nextTime = current.stop - 2000
-                //                if Float(nextTime) > Float(currentTimestamp) {
-                
+                let nextTime = current.start + 1000
                 dispatch_after(dispatchTimstamp(nextTime), dispatch_get_main_queue(), { () -> Void in
                     if(self.recording){
                         self.fetchNextSegment()
@@ -78,15 +82,13 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
                     }else{
                         print("next segment not fetched because stop triggered")
                     }
-                    
-                    
                 })
                 dispatch_after(self.dispatchTimstamp(current.stop), dispatch_get_main_queue(), { () -> Void in
                     if self.currentSegment == current {
-                        self.resetStatusUI()
+
                         self.startWaitingCountdown()
                         if(self.nextSegment == nil){
-
+                            //no more segments
                             self.output.stopRecording()
                             UIView.animateWithDuration(0.5) { () -> Void in
                                 self.startTip.layer.opacity = 1
@@ -126,6 +128,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
+
     func dispatchTimstamp(let timestamp:Int) ->UInt64 {
         let delta = Int64((timestamp - Int(NSDate().timeIntervalSince1970) * 1000 )) * Int64(NSEC_PER_MSEC)
         return dispatch_time(DISPATCH_TIME_NOW, delta)
@@ -134,20 +137,15 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     func fetchFirstSegment() {
         let currentTimestamp = Int(NSDate().timeIntervalSince1970) * 1000
         let readyTimestamp = currentTimestamp + 1000
-        dispatch_after(dispatchTimstamp(readyTimestamp), dispatch_get_main_queue()) { () -> Void in
-            if self.currentSegment != nil {
-                self.output.startRecordingToOutputFileURL(self.tempFile!, recordingDelegate: self)
-            }else{
-                print("hasn't allocated first segment untill ready timestamp!!!!")
-            }
-        }
+
         RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/segment", parameters: ["key": self.participation!.key, "readyTimestamp": readyTimestamp], success: { (operation, result) -> Void in
             self.session.startRunning()
-            //            self.currentSegment = (result.array()[0] as! Segment)
-            let segment = Segment()
-            segment.stop = Int(NSDate().timeIntervalSince1970) * 1000 + 7000
-            segment.start = Int(NSDate().timeIntervalSince1970) * 1000 + 2000
-            self.currentSegment = segment
+            let segment = (result.array()[0] as! Segment)
+            self.startWaitingCountdown()
+            dispatch_after(self.dispatchTimstamp(segment.start), dispatch_get_main_queue(), { () -> Void in
+                self.currentSegment = segment
+            })
+
             }) { (request, error) -> Void in
                 
         }
@@ -155,11 +153,11 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     
     func fetchNextSegment() {
         RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/segment", parameters: ["key": self.participation!.key], success: { (operation, result) -> Void in
-            //            self.nextSegment = (result.array()[0] as! Segment)
-            let segment = Segment()
-            segment.stop = Int(NSDate().timeIntervalSince1970) * 1000 + 21000
-            segment.start = Int(NSDate().timeIntervalSince1970) * 1000 + 14000
-            self.nextSegment = segment
+                        self.nextSegment = (result.array()[0] as! Segment)
+//            let segment = Segment()
+//            segment.stop = Int(NSDate().timeIntervalSince1970) * 1000 + 21000
+//            segment.start = Int(NSDate().timeIntervalSince1970) * 1000 + 14000
+//            self.nextSegment = segment
             }) { (request, error) -> Void in
                 
         }
@@ -167,9 +165,10 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     
     
     func startRecordingCountdown(){
+        resetStatusUI()
         self.progressView.hidden = false
         self.activeIndicator.hidden = false
-        self.progressView.progressTintColor = UIColor.redColor()
+
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateRecordingProgress", userInfo: nil, repeats: true)
     }
     
@@ -180,9 +179,10 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     }
     
     func startWaitingCountdown(){
+        resetStatusUI()
         self.waitingStart = NSDate().timeIntervalSince1970 * 1000
         self.progressView.hidden = false
-        self.progressView.progressTintColor = UIColor.redColor()
+
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateWaitingProgress", userInfo: nil, repeats: true)
     }
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
@@ -193,7 +193,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         FileUploader(url: url, path: "/api/v1/upload", file:outputFileURL, key: self.participation!.key).start({ () -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.clearState()
-                self.startTip.text = "Done, tap to start another recording!"
+                self.startTip.text = "Tap to start another recording!"
                 print("uploaded")
 
             })
@@ -251,8 +251,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
             UIView.animateWithDuration(2) { () -> Void in
                 self.startTip.layer.opacity = 0
             }
-            
-            RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/session", parameters: ["lat": 0, "lng": 0], success: { (operation, result) -> Void in
+            self.output.startRecordingToOutputFileURL(self.tempFile!, recordingDelegate: self)
+            RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/session", parameters: ["lat": 0, "lng": 0, "startedRecording" : Int(NSDate().timeIntervalSince1970*1000)], success: { (operation, result) -> Void in
                 self.participation = (result.array()[0] as! Participation)
                 self.fetchFirstSegment()
                 }) { (request, error) -> Void in

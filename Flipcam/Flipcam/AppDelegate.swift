@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func setupRecording(manager:RKObjectManager){
         let mapping = RKObjectMapping(forClass: Recording.self)
-        mapping.addAttributeMappingsFromDictionary(["video": "videoUrl",
+        mapping.addAttributeMappingsFromDictionary(["videoUrl": "video",
             "created": "created"])
         let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/recordings", keyPath: nil, statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
