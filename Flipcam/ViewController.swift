@@ -170,7 +170,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     }
     
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
-        let url:NSURL = NSURL(string: "http://31.187.70.159:5000")! // No longer used
+        let url:NSURL = NSURL(string: "http://[SERVER IP]:[SERVER PORT]")!
         self.startTip.layer.opacity = 1
         resetStatusUI()
         self.startTip.text = "Uploading"
