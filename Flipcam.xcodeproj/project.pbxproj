@@ -13,7 +13,7 @@
 		0C35468B1C13679C000CAC2D /* RecordngsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */; };
 		0C35468D1C138A58000CAC2D /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C35468C1C138A58000CAC2D /* FileUploader.swift */; };
 		0CC3709A1C133EC700243364 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC370991C133EC700243364 /* PreviewView.swift */; };
-		648C2C0D5FB10E6F1BFD6193 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A68900020157664E54D8639 /* libPods.a */; };
+		9A04A0001C5E90F600317531 /* Pods_Flipcam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A049FFF1C5E90F600317531 /* Pods_Flipcam.framework */; };
 		9A519A481C13366900866DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A471C13366900866DB2 /* AppDelegate.swift */; };
 		9A519A4A1C13366900866DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A519A491C13366900866DB2 /* ViewController.swift */; };
 		9A519A4D1C13366900866DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A519A4B1C13366900866DB2 /* Main.storyboard */; };
@@ -23,16 +23,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C3546821C135DD5000CAC2D /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
 		0C3546841C135E41000CAC2D /* Participation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participation.swift; sourceTree = "<group>"; };
 		0C3546861C135FF3000CAC2D /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		0C3546881C13618C000CAC2D /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordngsTableView.swift; sourceTree = "<group>"; };
 		0C35468C1C138A58000CAC2D /* FileUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 		0CC370991C133EC700243364 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
-		11213721F17B1F3183ABA919 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		11213721F17B1F3183ABA919 /* Pods-Flipcam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipcam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipcam/Pods-Flipcam.release.xcconfig"; sourceTree = "<group>"; };
+		55979EDA8114FD9A106FA4F3 /* Pods_Flipcam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flipcam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		570B8DFF9939DE2211D65957 /* Pods-Flipcam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipcam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipcam/Pods-Flipcam.debug.xcconfig"; sourceTree = "<group>"; };
 		6A68900020157664E54D8639 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A049FFC1C5E8F8D00317531 /* Flipcam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flipcam-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A049FFF1C5E90F600317531 /* Pods_Flipcam.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Flipcam.framework; path = "Pods/../build/Debug-iphoneos/Pods_Flipcam.framework"; sourceTree = "<group>"; };
 		9A519A441C13366900866DB2 /* Flipcam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipcam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A519A471C13366900866DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A519A491C13366900866DB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				648C2C0D5FB10E6F1BFD6193 /* libPods.a in Frameworks */,
+				9A04A0001C5E90F600317531 /* Pods_Flipcam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +105,9 @@
 				9A519A591C14050700866DB2 /* General.xcassets */,
 				9A519A501C13366900866DB2 /* LaunchScreen.storyboard */,
 				9A519A531C13366900866DB2 /* Info.plist */,
-				0C3546821C135DD5000CAC2D /* Bridging-header.h */,
 				0C35468A1C13679C000CAC2D /* RecordngsTableView.swift */,
 				0C35468C1C138A58000CAC2D /* FileUploader.swift */,
+				9A049FFC1C5E8F8D00317531 /* Flipcam-Bridging-Header.h */,
 			);
 			path = Flipcam;
 			sourceTree = "<group>";
@@ -113,7 +115,9 @@
 		D3A9F5454BC446A2408DF11D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A049FFF1C5E90F600317531 /* Pods_Flipcam.framework */,
 				6A68900020157664E54D8639 /* libPods.a */,
+				55979EDA8114FD9A106FA4F3 /* Pods_Flipcam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,8 +125,8 @@
 		F93885435D54290802FF6E89 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */,
-				11213721F17B1F3183ABA919 /* Pods.release.xcconfig */,
+				570B8DFF9939DE2211D65957 /* Pods-Flipcam.debug.xcconfig */,
+				11213721F17B1F3183ABA919 /* Pods-Flipcam.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,7 +160,7 @@
 		9A519A3C1C13366900866DB2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = SorryTeam;
 				TargetAttributes = {
@@ -211,7 +215,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flipcam/Pods-Flipcam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51530F3480607463784DBAA9 /* Copy Pods Resources */ = {
@@ -226,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flipcam/Pods-Flipcam-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		81D27EAEFD5D2AAACF59B56B /* Check Pods Manifest.lock */ = {
@@ -320,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -359,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Flipcam/Bridging-header.h";
@@ -369,14 +373,21 @@
 		};
 		9A519A571C13366900866DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 570B8DFF9939DE2211D65957 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 570B8DFF9939DE2211D65957 /* Pods-Flipcam.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"${PODS_ROOT}/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"${PODS_ROOT}/**",
 				);
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -384,19 +395,29 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sorryteam.Flipcam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flipcam/Flipcam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_ROOT)";
 			};
 			name = Debug;
 		};
 		9A519A581C13366900866DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11213721F17B1F3183ABA919 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 11213721F17B1F3183ABA919 /* Pods-Flipcam.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"${PODS_ROOT}/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"${PODS_ROOT}/**",
 				);
 				INFOPLIST_FILE = Flipcam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -404,6 +425,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sorryteam.Flipcam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Flipcam/Flipcam-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_ROOT)";
 			};
 			name = Release;
 		};

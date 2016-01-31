@@ -3,13 +3,12 @@ import AVFoundation
 
 private var myContext = 0
 
-
 class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     
     @IBOutlet weak var recordingsButton: UIButton!
     
     @IBOutlet weak var startTip: UILabel!
-        @IBOutlet weak var triggerButton: UIButton!
+    @IBOutlet weak var triggerButton: UIButton!
     @IBOutlet weak var activeIndicator: UIView!
     @IBOutlet weak var cameraPreview: PreviewView!
     
@@ -25,8 +24,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     var waitingStart:NSTimeInterval?
     let session = AVCaptureSession()
     @IBOutlet weak var progressView: UIProgressView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +54,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         let temp = NSTemporaryDirectory()
         
         tempFile = NSURL.fileURLWithPath(temp.stringByAppendingString("movie1.mov"))
-        
-        
-        
-        
-        
-        
-        
     }
+    
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
-        
         
         if keyPath == "currentSegment" {
             resetStatusUI()
@@ -76,55 +65,48 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
                 self.startRecordingCountdown()
                 let nextTime = current.start + 1000
                 dispatch_after(dispatchTimstamp(nextTime), dispatch_get_main_queue(), { () -> Void in
-                    if(self.recording){
+                    if self.recording {
                         self.fetchNextSegment()
                         print("fetching next segment")
-                    }else{
+                    } else {
                         print("next segment not fetched because stop triggered")
                     }
                 })
+                
                 dispatch_after(self.dispatchTimstamp(current.stop), dispatch_get_main_queue(), { () -> Void in
                     if self.currentSegment == current {
 
                         self.startWaitingCountdown(self.nextSegment)
-                        if(self.nextSegment == nil){
+                        if self.nextSegment == nil {
                             //no more segments
                             self.output.stopRecording()
                             UIView.animateWithDuration(0.5) { () -> Void in
                                 self.startTip.layer.opacity = 1
                             }
-                            
                         }
                     }
                 })
-            }else if let next = nextSegment{
-                
+            } else if let next = nextSegment {
                 self.startWaitingCountdown(next)
-                
-            }else{
             }
-            
-            
-            
-        }else if keyPath == "nextSegment"{
+        } else if keyPath == "nextSegment" {
             if let next = nextSegment {
                 let currentTimestamp = NSDate().timeIntervalSince1970 * 1000
                 
                 let switchTime = dispatch_time(UInt64(next.start), Int64(-0) * Int64(NSEC_PER_SEC))
-                if(Double(switchTime) > currentTimestamp){
+                if (Double(switchTime) > currentTimestamp) {
                     dispatch_after(dispatchTimstamp(Int(switchTime)), dispatch_get_main_queue(), { () -> Void in
                         let segment = self.nextSegment
                         self.nextSegment = nil
                         self.currentSegment = segment
                         
                     })
-                }else{
+                } else {
                     print("next is after now!!!!!!!")
                     self.nextSegment = nil
                 }
             }
-            
-        }else{
+        } else {
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
     }
@@ -132,8 +114,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
     func dispatchTimstamp(let timestamp:Int) ->UInt64 {
         let delta = Int64((timestamp - Int(NSDate().timeIntervalSince1970) * 1000 )) * Int64(NSEC_PER_MSEC)
         return dispatch_time(DISPATCH_TIME_NOW, delta)
-        
     }
+    
     func fetchFirstSegment() {
         let currentTimestamp = Int(NSDate().timeIntervalSince1970) * 1000
         let readyTimestamp = currentTimestamp + 1000
@@ -160,12 +142,10 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
 //            segment.start = Int(NSDate().timeIntervalSince1970) * 1000 + 14000
 //            self.nextSegment = segment
             }) { (request, error) -> Void in
-                
         }
     }
     
-    
-    func startRecordingCountdown(){
+    func startRecordingCountdown() {
         resetStatusUI()
         self.progressView.hidden = false
         self.activeIndicator.hidden = false
@@ -173,13 +153,13 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateRecordingProgress", userInfo: nil, repeats: true)
     }
     
-    func resetStatusUI(){
+    func resetStatusUI() {
         timer?.invalidate()
         self.activeIndicator.hidden = true
         self.progressView.hidden = true
     }
     
-    func startWaitingCountdown(segment: Segment?){
+    func startWaitingCountdown(segment: Segment?) {
         if let segment = segment {
             resetStatusUI()
             self.waitingStart = NSDate().timeIntervalSince1970 * 1000
@@ -188,8 +168,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateWaitingProgress:", userInfo: ["segment": segment], repeats: true)
         }
     }
+    
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
-        let url:NSURL = NSURL(string: "http://31.187.70.159:5000")!
+        let url:NSURL = NSURL(string: "http://31.187.70.159:5000")! // No longer used
         self.startTip.layer.opacity = 1
         resetStatusUI()
         self.startTip.text = "Uploading"
@@ -204,56 +185,52 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
             }, progress: {(progress) -> Void in
                 let progressString = String(format: "%.0f%%", arguments: [progress*100])
                 self.startTip.text = "Uploading \(progressString)"
-                
-                
         })
-        
-        
     }
-    func updateRecordingProgress(){
+    
+    func updateRecordingProgress() {
         progressView.setProgress(calculateProgress(self.currentSegment!), animated: false)
     }
-    func updateWaitingProgress(timer: NSTimer){
-
+    
+    func updateWaitingProgress(timer: NSTimer) {
         if let waitingStart = waitingStart {
             let segment = timer.userInfo!["segment"] as! Segment
                 let now = NSDate().timeIntervalSince1970 * 1000
                 let progress = min((Float( now - Double(waitingStart) ))/Float(segment.start - Int(waitingStart)), 1.0)
                 progressView.setProgress(progress, animated: false)
-                
         }
     }
-    func calculateProgress(let segment:Segment) -> Float{
+    
+    func calculateProgress(let segment:Segment) -> Float {
         let current = NSDate().timeIntervalSince1970 * 1000
         
         let progress = min((Float(Double(segment.stop) - current ))/Float(segment.stop - segment.start), 1.0)
         return progress
-        
-        
     }
-    func clearState(){
-        
+    
+    func clearState() {
         self.participation = nil
         self.nextSegment = nil
         self.currentSegment = nil
-
-        
     }
+    
     func setupActiveIndicator() {
         activeIndicator.layer.cornerRadius = activeIndicator.frame.width/2
         activeIndicator.layer.opacity = 0
     }
+    
     @IBAction func previewTapped(sender: AnyObject) {
-        if(recording){
+        if recording {
             recording = false
             self.startTip.layer.opacity = 1
             self.startTip.text = "Stopping... just finish your part!"
             //stop
-        }else if (self.currentSegment == nil && self.nextSegment == nil ){
+        } else if (self.currentSegment == nil && self.nextSegment == nil) {
             recording = true
             UIView.animateWithDuration(2) { () -> Void in
                 self.startTip.layer.opacity = 0
             }
+            
             self.output.startRecordingToOutputFileURL(self.tempFile!, recordingDelegate: self)
             RKObjectManager.sharedManager().getObjectsAtPath("/api/v1/session", parameters: ["lat": 0, "lng": 0, "startedRecording" : Int(NSDate().timeIntervalSince1970*1000)], success: { (operation, result) -> Void in
                 self.participation = (result.array()[0] as! Participation)
@@ -262,10 +239,10 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
                     UIView.animateWithDuration(2) { () -> Void in
                         self.startTip.layer.opacity = 1
                     }
+                    
                     self.recording = false
             }
         }
-        
     }
     
     func startActiveIndicator() {
@@ -277,14 +254,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate{
         }
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 }
-

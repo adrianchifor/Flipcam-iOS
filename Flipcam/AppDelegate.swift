@@ -1,13 +1,10 @@
-
 import UIKit
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let host = "http://31.187.70.159:5000"
+    let host = "http://31.187.70.159:5000" // No longer running
     var window: UIWindow?
-    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -39,31 +36,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupMappings() {
-        
         let manager =  RKObjectManager(baseURL: NSURL(string: self.host))
         RKObjectManager.setSharedManager(manager)
         setupParticipant(manager)
         setupSegment(manager)
         setupRecording(manager)
-        
-        
     }
     
-    func setupParticipant(manager:RKObjectManager){
+    func setupParticipant(manager:RKObjectManager) {
         let mapping = RKObjectMapping(forClass: Participation.self)
         mapping.addAttributeMappingsFromDictionary(["key": "key"])
         let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/session", keyPath: nil, statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
-
     }
-    func setupSegment(manager:RKObjectManager){
+    
+    func setupSegment(manager:RKObjectManager) {
         let mapping = RKObjectMapping(forClass: Segment.self)
-        mapping.addAttributeMappingsFromDictionary(["startTimestamp": "start",
-                                                    "stopTimestamp": "stop"])
+        mapping.addAttributeMappingsFromDictionary(["startTimestamp": "start", "stopTimestamp": "stop"])
         let responseDescriptor = RKResponseDescriptor(mapping: mapping, method: .GET, pathPattern: "/api/v1/segment", keyPath: nil, statusCodes: RKStatusCodeIndexSetForClass(RKStatusCodeClass.Successful))
         manager.addResponseDescriptor(responseDescriptor)
     }
-    func setupRecording(manager:RKObjectManager){
+    
+    func setupRecording(manager:RKObjectManager) {
         let mapping = RKObjectMapping(forClass: Recording.self)
         mapping.addAttributeMappingsFromDictionary(["videoUrl": "video",
             "created": "created"])
@@ -71,4 +65,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         manager.addResponseDescriptor(responseDescriptor)
     }
 }
-

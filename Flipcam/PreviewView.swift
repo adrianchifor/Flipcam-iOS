@@ -3,8 +3,9 @@ import UIKit
 
 class PreviewView: UIView {
     
-    var session:AVCaptureSession?{
-        get{
+    var session:AVCaptureSession? {
+        
+        get {
             let prevLayer = layer as! AVCaptureVideoPreviewLayer
             return prevLayer.session
         }
@@ -14,8 +15,7 @@ class PreviewView: UIView {
         }
     }
     
-    override class func layerClass() -> AnyClass{
+    override class func layerClass() -> AnyClass {
         return AVCaptureVideoPreviewLayer.self
     }
-    
 }

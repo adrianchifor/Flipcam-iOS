@@ -7,7 +7,7 @@ class FileUploader: NSObject {
     let path:String
     let key:String
     
-    init(url:NSURL, path:String, file:NSURL, key:String){
+    init(url:NSURL, path:String, file:NSURL, key:String) {
         client = AFHTTPClient(baseURL: url)
         self.file = file
         self.path = path
@@ -18,13 +18,14 @@ class FileUploader: NSObject {
         let request = client.multipartFormRequestWithMethod("POST", path: path, parameters: ["key": self.key]) { (data) -> Void in
             data.appendPartWithFileData(NSData(contentsOfURL: self.file), name: "video", fileName: "video", mimeType: "video/quicktime")
         }
+        
         let operation = AFHTTPRequestOperation(request: request)
         operation.completionBlock = completion
         operation.setUploadProgressBlock { (written, totalWritten, expected) -> Void in
             progress(progress: Float(totalWritten)/Float(expected))
         }
+        
         self.client.enqueueHTTPRequestOperation(operation)
         print("uploading video \(path)")
-
     }
 }
