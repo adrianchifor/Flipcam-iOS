@@ -5,6 +5,8 @@ Instantly team-up with passers-by to create amazing videos.
 The app was created in 24h at TechCrunch Disrupt London Hackathon 2015. For more information
 check out the [Devpost project page for Flipcam.](http://devpost.com/software/flipcam)
 
+The app backend can be found [here.](https://github.com/adrianchifor/Flipcam-Backend)
+
 ### Build
 
 Install Cocoapods:
