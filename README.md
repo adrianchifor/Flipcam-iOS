@@ -9,19 +9,7 @@ The app backend can be found [here.](https://github.com/adrianchifor/Flipcam-Bac
 
 ### Build
 
-Install Cocoapods:
-
-```bash
-sudo gem install cocoapods
-```
-
-Install project dependencies:
-
-```bash
-pod install
-```
-
-Finally, open *Flipcam.xcworkspace* in XCode and build.
+Open *Flipcam.xcworkspace* in Xcode and build.
 
 ### License
 
